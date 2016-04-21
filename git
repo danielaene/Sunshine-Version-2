@@ -1,0 +1,65 @@
+git push -f origin features/CCD-1398
+
+git commit --amend
+
+git log team/develop..HEAD
+
+git pull --rebase team develop
+
+gitk
+gitk path/to/file
+
+git stash
+git stash list
+git stash apply
+
+git pull --rebase fred features/CCD-1398
+
+revert changes:
+	git checkout HEAD -- <path>
+delete last commit
+	git reset --hard HEAD~1
+abort merge:
+	git reset --hard HEAD
+undo last commit
+	git reset --soft HEAD~1 
+remove file from "files to be commited"
+	git reset file
+
+git branch -D features/CCD-15.06.1-bloomberg
+git push origin --delete features/CCD-15.06.1-bloomberg	
+
+git checkout -b <new-branch>
+
+git remote show
+git fetch <remote>
+
+revert changes on file:
+	git checkout -- [file]
+
+do a dry run and tell me what you would have removed
+	git clean -d -n
+
+clean interactively
+	git clean -x -i
+	
+copy commit from a branch to another
+	git cherry pick
+
+delete last but one commit from push
+	 git rebase --onto features/CCD-1409~2 features/CCD-1409~1 features/CCD-1409
+	 
+	 git rebase --onto features/CCD-2135~2 features/CCD-2135~1 features/CCD-2135
+	 
+------
+add new project to git
+	git init
+	git add .
+	git commit -m ""
+	git remote add origin
+	git remote -v
+	git push origin master
+
+--------------
+reset branch to remote branch
+	git reset --hard origin/features/CCD-3169
